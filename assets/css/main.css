@@ -2554,3 +2554,32 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/* --- Ajustements pour la page Mentions Légales --- */
+
+/* Cache le menu toggle sur la page mentions légales car on utilise un bouton retour */
+.starter-page-page .header-toggle {
+    display: none;
+}
+
+/* Force l'en-tête à être une barre simple en haut au lieu de la barre latérale */
+.starter-page-page #header {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    left: 0;
+    bottom: auto;
+    background: #040b14;
+    z-index: 999;
+}
+
+/* Enlève la marge gauche du contenu principal (qui servait à laisser la place au menu latéral) */
+.starter-page-page .main {
+    margin-left: 0 !important;
+}
+
+/* Ajuste le footer pour qu'il prenne toute la largeur */
+.starter-page-page #footer {
+    width: 100%;
+    margin-left: 0;
+}
