@@ -4,7 +4,7 @@
 * Adapted for: Arthur Huyghe Portfolio
 */
 
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -36,7 +36,7 @@
    * Toggle mobile nav dropdowns
    */
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
+    navmenu.addEventListener('click', function (e) {
       e.preventDefault();
       this.parentNode.classList.toggle('active');
       this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
@@ -54,9 +54,9 @@
     });
     // Sécurité : Si le site met trop de temps ou plante, on force la suppression après 2 secondes
     setTimeout(() => {
-        if(document.body.contains(preloader)) {
-            preloader.remove();
-        }
+      if (document.body.contains(preloader)) {
+        preloader.remove();
+      }
     }, 2000);
   }
 
@@ -72,11 +72,11 @@
   }
   if (scrollTop) {
     scrollTop.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({
+      e.preventDefault();
+      window.scrollTo({
         top: 0,
         behavior: 'smooth'
-        });
+      });
     });
   }
 
@@ -88,12 +88,12 @@
    */
   function aosInit() {
     if (typeof AOS !== 'undefined') {
-        AOS.init({
+      AOS.init({
         duration: 600,
         easing: 'ease-in-out',
         once: true,
         mirror: false
-        });
+      });
     }
   }
   window.addEventListener('load', aosInit);
@@ -107,10 +107,9 @@
     typed_strings = typed_strings.split(',');
     new Typed('.typed', {
       strings: typed_strings,
-      loop: true, // J'ai mis true pour que ça boucle
+      loop: false, // J'ai mis false pour qu'il s'écrive et reste
       typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
+      showCursor: false
     });
   }
 
@@ -118,7 +117,7 @@
    * Initiate Pure Counter
    */
   if (typeof PureCounter !== 'undefined') {
-      new PureCounter();
+    new PureCounter();
   }
 
   /**
@@ -129,7 +128,7 @@
     new Waypoint({
       element: item,
       offset: '80%',
-      handler: function(direction) {
+      handler: function (direction) {
         let progress = item.querySelectorAll('.progress .progress-bar');
         progress.forEach(el => {
           el.style.width = el.getAttribute('aria-valuenow') + '%';
@@ -143,14 +142,14 @@
    */
   if (typeof GLightbox !== 'undefined') {
     const glightbox = GLightbox({
-        selector: '.glightbox'
+      selector: '.glightbox'
     });
   }
 
   /**
    * Init isotope layout and filters (C'est ça qui gère le portfolio)
    */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+  document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
@@ -158,24 +157,24 @@
     let initIsotope;
     // On vérifie que imagesLoaded est bien chargé via le CDN HTML
     if (typeof imagesLoaded !== 'undefined' && typeof Isotope !== 'undefined') {
-        imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-            initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-                itemSelector: '.isotope-item',
-                layoutMode: layout,
-                filter: filter,
-                sortBy: sort
-            });
+      imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
+        initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+          itemSelector: '.isotope-item',
+          layoutMode: layout,
+          filter: filter,
+          sortBy: sort
         });
+      });
     }
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
+      filters.addEventListener('click', function () {
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
         this.classList.add('filter-active');
         if (initIsotope) {
-            initIsotope.arrange({
+          initIsotope.arrange({
             filter: this.getAttribute('data-filter')
-            });
+          });
         }
         if (typeof aosInit === 'function') {
           aosInit();
@@ -189,7 +188,7 @@
    * Init swiper sliders
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+    document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
@@ -209,7 +208,7 @@
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
-  window.addEventListener('load', function(e) {
+  window.addEventListener('load', function (e) {
     if (window.location.hash) {
       if (document.querySelector(window.location.hash)) {
         setTimeout(() => {
