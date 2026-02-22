@@ -62,6 +62,22 @@
       color: var(--default-color);
       display: inline-block;
     }
+
+    /* Personnalisation GLightbox pour le thème sombre */
+    .glightbox-clean .gslide-description {
+      background: var(--surface-color);
+    }
+
+    .glightbox-clean .gslide-title {
+      color: var(--heading-color);
+      font-family: var(--heading-font);
+      font-weight: 700;
+    }
+
+    .glightbox-clean .gslide-desc {
+      color: var(--default-color);
+      font-family: var(--default-font);
+    }
   </style>
 </head>
 
@@ -252,7 +268,7 @@
 
       <div class="container">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">Tous</li>
@@ -286,12 +302,13 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-connect">
               <div class="portfolio-content h-100">
                 <a href="assets/img/portfolio/sae103.jpg" class="glightbox"
-                  data-title="SAE 1.03 | Supports de transmission">
+                  data-title="SAE 1.03 | Caractérisation de supports de transmission"
+                  data-description=".glightbox-desc-sae103">
                   <img src="assets/img/portfolio/sae103.jpg" class="img-fluid" alt="Supports de transmission"
                     onerror="this.src='https://placehold.co/600x400?text=Transmission'">
                 </a>
                 <!-- GLightbox Description invisible sur la page, captée automatiquement par le lien a -->
-                <div class="glightbox-desc">
+                <div class="glightbox-desc-sae103" style="display: none;">
                   <p>L'objectif de ce projet était d'analyser et de quantifier les performances de liaisons physiques
                     (câbles Ethernet et coaxiaux). À travers une approche mêlant théorie et simulation logicielle, j'ai
                     appris à évaluer la qualité d'un système de transmission.</p>
@@ -312,20 +329,8 @@
                     <span class="badge-skill">Théorie & Simulation</span>
                   </div>
                   <a href="assets/img/portfolio/sae103.jpg" class="glightbox details-link" title="Afficher les détails"
-                    data-title="SAE 1.03 | Supports de transmission"><i class="bi bi-plus"></i></a>
-                  <div class="glightbox-desc">
-                    <p>L'objectif de ce projet était d'analyser et de quantifier les performances de liaisons physiques
-                      (câbles Ethernet et coaxiaux). À travers une approche mêlant théorie et simulation logicielle,
-                      j'ai appris à évaluer la qualité d'un système de transmission.</p>
-                    <p><strong>Paramètres clés :</strong> Mesure précise de l'atténuation (perte de signal) et du retard
-                      de propagation.</p>
-                    <p><strong>Méthodologie :</strong> Réalisation de simulations basées sur des modèles mathématiques
-                      pour prédire le comportement des supports.</p>
-                    <p><strong>Livrables :</strong> Rédaction de comptes-rendus techniques synthétiques après chaque
-                      session expérimentale.</p>
-                    <p><strong>Compétences :</strong> Rigueur scientifique, analyse de données et maîtrise des outils de
-                      simulation.</p>
-                  </div>
+                    data-title="SAE 1.03 | Caractérisation de supports de transmission"
+                    data-description=".glightbox-desc-sae103"><i class="bi bi-plus"></i></a>
                 </div>
               </div>
             </div>
